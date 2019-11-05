@@ -1,9 +1,6 @@
 package test;
 
-import DynamicPrograming.Number_120;
-import DynamicPrograming.Number_312;
-import DynamicPrograming.Number_638;
-import DynamicPrograming.Number_647;
+import DynamicPrograming.*;
 
 import java.util.*;
 //    public static void main(String[] args) {
@@ -93,9 +90,9 @@ public class Main {
         a=a+b;
     }
     public static void main(String[] args) {
-        String str1 = "ABC";
-        change(str1);
-        System.out.println(str1);
+        Number_1130 a=new Number_1130();
+        a.mctFromLeafValues(new int[]{6,2,4});
+
     }
 
     public static void change(String a) {
