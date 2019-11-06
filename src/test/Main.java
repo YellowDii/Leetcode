@@ -90,11 +90,22 @@ public class Main {
         a=a+b;
     }
     public static void main(String[] args) {
-        Number_1130 a=new Number_1130();
-        a.mctFromLeafValues(new int[]{6,2,4});
 
     }
-
+    //1220题用到的快速计算
+    public static int countmi(int a,int b, int n){
+        System.out.println(a*(int)Math.pow(b,n));
+        //快速计算a*(b^n)
+        while (n!=0){
+            if ((n&1)==1){
+                a=a*b;
+            }
+            b=b*b;
+            n>>=1;
+        }
+        System.out.println(a);
+        return a;
+    }
     public static void change(String a) {
         char data[] = {'D', 'E', 'F'};
         String str = new String(data);
