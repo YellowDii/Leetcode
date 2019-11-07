@@ -90,7 +90,8 @@ public class Main {
         a=a+b;
     }
     public static void main(String[] args) {
-
+        Number_121 n=new Number_121();
+        System.out.println(n.maxProfit(new int[]{1, 3, 2, 8, 4, 9}));
     }
     //1220题用到的快速计算
     public static int countmi(int a,int b, int n){

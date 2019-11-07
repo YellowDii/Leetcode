@@ -75,6 +75,7 @@ package DynamicPrograming;
  * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  */
 public class Number_714 {
+    String name="买卖股票的最佳时机含手续费";
     public int maxProfit(int[] prices, int fee) {
         int cash=0,hold=-prices[0];
         //手头上只能有一只股票
