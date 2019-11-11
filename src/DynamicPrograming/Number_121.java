@@ -25,7 +25,7 @@ package DynamicPrograming;
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Number_121 {
-    String name = "121.买卖股票的最最佳时机（best-time-to-buy-and-sell-stock）";
+    String best_time_to_buy_and_sell_stock = "121.买卖股票的最最佳时机（best-time-to-buy-and-sell-stock）";
 
     //动态规划 dp[i][j]表示第i天 j=0表示没有持股 j=1表示持股了
     //套用714中的模板
