@@ -46,6 +46,7 @@ A，B，C的价格分别为¥2，¥3，¥4.
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Number_638 {
+    String shopping_offers="638.大礼包 （ shopping-offers ）";
     int min = 0;
     int order = 0;
     List<List<Integer>> offers;

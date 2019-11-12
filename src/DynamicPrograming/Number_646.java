@@ -25,7 +25,7 @@ import java.util.Comparator;
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Number_646 {
-    String name="646.最长数对链（maximum-length-of-pair-chain）";
+    String maximum_length_of_pair_chain="646.最长数对链（maximum-length-of-pair-chain）";
     //动态规划 先进行排序
     // dp[i]表示尾巴为排序后的数组pairs[i]为尾巴的个数
     public int findLongestChain(int[][] pairs) {
