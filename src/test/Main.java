@@ -90,8 +90,10 @@ public class Main {
         a=a+b;
     }
     public static void main(String[] args) {
-        Number_1147 n=new Number_1147();
-        System.out.println(n.longestDecomposition("antaprezatepzapreanta"));
+//        Number_1147 n=new Number_1147();
+//        System.out.println(n.longestDecomposition("antaprezatepzapreanta"));
+        Number_246 n=new Number_246();
+        System.out.println(n.nthUglyNumber(1000));
     }
     //1220题用到的快速计算
     public static int countmi(int a,int b, int n){
