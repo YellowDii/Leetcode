@@ -92,8 +92,11 @@ public class Main {
     public static void main(String[] args) {
 //        Number_1147 n=new Number_1147();
 //        System.out.println(n.longestDecomposition("antaprezatepzapreanta"));
-        Number_246 n=new Number_246();
-        System.out.println(n.nthUglyNumber(1000));
+
+//        Number_246 n=new Number_246();
+//        System.out.println(n.nthUglyNumber(1000));
+        Number_392 a=new Number_392();
+        a.isSubsequence("abc","ahbfcagaa");
     }
     //1220题用到的快速计算
     public static int countmi(int a,int b, int n){

@@ -25,9 +25,23 @@ public class ReferenceCountingGC {
         System.gc();
         System.out.println("GC完。。。");
     }
-
+    /*
+    VM 参数：
+    -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:MaxTenuringThreshold=15
+    -XX:+PrintTenuringDistribution
+     */
+    public static void testTenuringThreshold2(){
+        byte[] o1,o2,o3,o4,o5;
+        o1=new byte[_1MB/4];
+        //o1+o2 >survivor空间的一半
+        o2=new byte[_1MB/4];
+        o3=new byte[_1MB*4];
+        o4=new byte[_1MB*4];
+        o4=null;
+        o4=new byte[_1MB*4];
+    }
     public static void main(String[] args) {
-        ReferenceCountingGC.testGC();
+        ReferenceCountingGC.testTenuringThreshold2();
     }
 }
 /*
