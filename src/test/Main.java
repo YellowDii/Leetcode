@@ -95,8 +95,11 @@ public class Main {
 
 //        Number_246 n=new Number_246();
 //        System.out.println(n.nthUglyNumber(1000));
-        Number_392 a=new Number_392();
-        a.isSubsequence("abc","ahbfcagaa");
+//        Number_392 a=new Number_392();
+//        a.isSubsequence("abc","ahbfcagaa");
+
+        Number_474 n=new Number_474();
+        System.out.println(n.findMaxForm2(new String[]{"0","11","1000","01","0","101","1","1","1","0","0","0","0","1","0","0110101","0","11","01","00","01111","0011","1","1000","0","11101","1","0","10","0111"},9,80));
     }
     //1220题用到的快速计算
     public static int countmi(int a,int b, int n){
