@@ -80,4 +80,24 @@ public class Number_650 {
         }
         return n;
     }
+    //用dp+上面的递归
+    public int minSteps3(int n){
+        int[] dp=new int[n+1];
+        return minSteps_(n,dp);
+    }
+
+    private int minSteps_(int n,int[] dp) {
+        if (n==1){
+            dp[1]=1;
+            return dp[1];
+        }
+        if (dp[n]!=0)
+            return dp[n];
+        for (int i=n/2;i>1;i++){
+            if (n%i==0){
+                return dp[n]=minSteps_(i,dp);
+            }
+        }
+        return dp[n]=n;
+    }
 }
