@@ -98,8 +98,8 @@ public class Main {
 //        Number_392 a=new Number_392();
 //        a.isSubsequence("abc","ahbfcagaa");
 //        System.out.println(Math.PI);
-        Number_813 n=new Number_813();
-        System.out.println(n.largestSumOfAverages(new int[]{4,1,7,5,6,2,3},4));
+        Number_688 n=new Number_688();
+//        System.out.println(n.knightProbability(3,2,0,0));
     }
     //1220题用到的快速计算
     public static int countmi(int a,int b, int n){
