@@ -194,8 +194,8 @@
 
               driverName="org.gjt.mm.mysql.Driver"
               connectionURL="jdbc:mysql://localhost/authority"
-              connectionName="test"
-              connectionPassword="test"
+              connectionName="leetcode"
+              connectionPassword="leetcode"
 
             "connectionName" and "connectionPassword" are optional.
         -->
