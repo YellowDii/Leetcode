@@ -1,4 +1,4 @@
-package GreedyAlgorithm;
+package leetcode.GreedyAlgorithm;
 
 import java.util.*;
 
