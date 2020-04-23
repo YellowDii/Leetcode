@@ -4,6 +4,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class FutureMain {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
@@ -21,5 +22,6 @@ public class FutureMain {
         }
         //如果此时call()方法没有执行完成 则依然会等待
         System.out.println("数据"+future.get());
+
     }
 }
