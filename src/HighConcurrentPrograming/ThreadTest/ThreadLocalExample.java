@@ -1,4 +1,4 @@
-package ThreadTest;
+package HighConcurrentPrograming.ThreadTest;
 
 public class ThreadLocalExample {
     public static void main(String[] args) {
