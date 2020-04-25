@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.DynamicPrograming;
 
 public class Mian08_11 {
     /**
@@ -51,5 +51,29 @@ public class Mian08_11 {
         }
         return res;
     }
-    //动态规划 先放着... 睡觉 明天仔细看看背包九讲
+    //动态规划 dp[4][n]空间优化后：
+    public int waysToChange2(int n) {
+        int[] dp = new int[n + 1];
+
+        int[] coins = new int[]{1,5,10,25};
+
+
+        //刚好可以用一个硬币凑成的情况，是一种情况
+        // while i == coin :
+        //dp[i] = dp[i - coin] => dp[0]
+        dp[0] = 1;
+
+        /**
+         * dp方程：dp[i] += dp[i - coin];
+         */
+
+        for(int coin : coins) {
+            for(int i = coin; i <= n; i++) {
+                dp[i] = (dp[i] + dp[i - coin]) % 1000000007;
+            }
+        }
+
+        return dp[n];
+
+    }
 }
