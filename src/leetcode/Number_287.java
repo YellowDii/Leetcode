@@ -32,6 +32,7 @@ public class Number_287 {
     //循环检测 弗洛伊德的乌龟和兔子 即检测单链表是否存在环
     public int findDuplicate(int[] nums) {
         // Find the intersection point of the two runners.
+        //兔子的速度是乌龟的两倍 相等时 兔子走了2圈 龟走了1圈
         int tortoise = nums[0];
         int hare = nums[0];
         do {
@@ -39,6 +40,8 @@ public class Number_287 {
             hare = nums[nums[hare]];
         } while (tortoise != hare);
 
+        //让另一个乌龟从起点开始 和走了1圈的乌龟一起向前走 相当于一个在圈头 一个在圈尾
+        //这时候相当于首尾指针 一起移动进行比较即可
         // Find the "entrance" to the cycle.
         int ptr1 = nums[0];
         int ptr2 = tortoise;
