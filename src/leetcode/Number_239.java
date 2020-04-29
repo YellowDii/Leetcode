@@ -1,5 +1,9 @@
 package leetcode;
 
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Number_239 {
     /**
      * 239. 滑动窗口最大值（sliding-window-maximum）
@@ -54,6 +58,150 @@ public class Number_239 {
                 max = Math.max(max, nums[j]);
             output[i] = max;
         }
+        return output;
+    }
+    //这个只要6ms 上面要30+ms 不是垫底了哈哈
+    //不过碰到最坏情况 降序数组 时间复杂度为O(n)
+    public int[] maxSlidingWindow2(int[] nums, int k) {
+        int n = nums.length;
+        if (n * k == 0) return new int[0];
+        Window window=new Window(k);
+        int[] result=new int[n-k+1];
+        for (int i=0;i<n;i++){
+            window.add(nums[i]);
+            if (i>=k-1){
+                result[i-k+1]=window.getMax();
+            }
+        }
+        return result;
+    }
+    //抽象的窗口
+    class Window{
+        private int maxSize;
+        private int max;
+        private LinkedList<Integer> datas;
+
+        Window(int size){
+            this.max=Integer.MIN_VALUE;
+            this.maxSize=size;
+            datas=new LinkedList<>();
+        }
+
+        public void add(int node){
+            int curSize=datas.size();
+            if (curSize<maxSize){
+                //当前窗口还没填满
+                datas.add(node);
+                if(node>max){
+                    max=node;
+                }
+            }else {
+                //已经填满
+                datas.add(node);
+                if (node>max){
+                    datas.removeFirst();
+                    max=node;
+                }else {
+                    int delete=datas.removeFirst();
+                    //最大项恰好就是头部
+                    if (delete==max){
+                        updateMax();
+                    }
+                }
+            }
+        }
+        //更新Max
+        private void updateMax() {
+            int tmp=datas.getFirst();
+            for (Integer i:datas){
+                if (i>tmp){
+                    tmp=i;
+                }
+            }
+            max=tmp;
+        }
+
+        public int getMax(){
+            return max;
+        }
+    }
+
+    /*------------------------------------------------------------------------------------------------------*/
+
+    //官方解答 双向队列
+    ArrayDeque<Integer> deq = new ArrayDeque<Integer>();
+    int [] nums;
+
+    public void clean_deque(int i, int k) {
+        // remove indexes of elements not from sliding window
+        if (!deq.isEmpty() && deq.getFirst() == i - k)
+            deq.removeFirst();
+
+        // remove from deq indexes of all elements
+        // which are smaller than current element nums[i]
+        while (!deq.isEmpty() && nums[i] > nums[deq.getLast()])
+            deq.removeLast();
+    }
+    //这个要13ms 不过算法思想还是O(n) 主要还是测试例子的原因
+    public int[] maxSlidingWindow3(int[] nums, int k) {
+        int n = nums.length;
+        if (n * k == 0) return new int[0];
+        if (k == 1) return nums;
+
+        // init deque and output
+        this.nums = nums;
+        int max_idx = 0;
+        for (int i = 0; i < k; i++) {
+            clean_deque(i, k);
+            deq.addLast(i);
+            // compute max in nums[:k]
+            if (nums[i] > nums[max_idx]) max_idx = i;
+        }
+        int [] output = new int[n - k + 1];
+        output[0] = nums[max_idx];
+
+        // build output
+        for (int i  = k; i < n; i++) {
+            clean_deque(i, k);
+            deq.addLast(i);
+            output[i - k + 1] = nums[deq.getFirst()];
+        }
+        return output;
+    }
+    //动态规划 两个数组来获取输出
+    /**
+     * 先把nums 分块 每块长度为k 最后一块长度可能小于k
+     * 建立数组 left， 其中 left[j] 是从块的开始到下标 j 最大的元素，方向 左->右。
+     * 建立数组 right，其中 right[j] 是从块的结尾到下标 j 最大的元素，方向 右->左。right 数组和 left 除了方向不同以外基本一致。
+     * 考虑从下标 i 到下标 j的滑动窗口。
+     * 根据定义，right[i] 是左侧块内的最大元素，left[j] 是右侧块内的最大元素。
+     * 因此滑动窗口中的最大元素为 max(right[i], left[j])。
+     */
+    //5ms 挺快的
+    public int[] maxSlidingWindow4(int[] nums, int k) {
+        int n = nums.length;
+        if (n * k == 0) return new int[0];
+        if (k == 1) return nums;
+
+        int [] left = new int[n];
+        left[0] = nums[0];
+        int [] right = new int[n];
+        right[n - 1] = nums[n - 1];
+        for (int i = 1; i < n; i++) {
+            // from left to right
+            if (i % k == 0) left[i] = nums[i];  // block_start
+            else left[i] = Math.max(left[i - 1], nums[i]);
+
+            // from right to left
+            int j = n - i - 1;
+            if ((j + 1) % k == 0) right[j] = nums[j];  // block_end
+            else right[j] = Math.max(right[j + 1], nums[j]);
+        }
+
+        int [] output = new int[n - k + 1];
+        for (int i = 0; i < n - k + 1; i++)
+            output[i] = Math.max(left[i + k - 1], right[i]);
+
         return output;
     }
 
