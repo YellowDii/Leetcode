@@ -34,7 +34,7 @@ public class Number_53 {
         return max;
     }
     //上述优化一下 看解答看到的 挺精妙的
-    //和为正数 继续加 不为整数 进行比较
+    //和为正数 继续加 不为正数 进行比较
     public int maxSubArray2(int[] nums) {
         int res = nums[0];
         int sum = 0;
