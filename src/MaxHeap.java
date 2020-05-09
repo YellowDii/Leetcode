@@ -1,5 +1,3 @@
-package leetcode;
-
 public class MaxHeap<E> {
     private transient Object[] queue;
 
