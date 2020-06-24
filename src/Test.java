@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -12,7 +14,12 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class Test {
     static AtomicInteger atomicInteger=new AtomicInteger();
     private Lock lock=new ReentrantLock();
-
+    private ThreadLocal<Map<String,Object>> beanMap=new ThreadLocal(){
+        @Override
+        protected Object initialValue() {
+            return new HashMap<>();
+        }
+    };
 
     public static void main(String[] args) {
 //        atomicInteger.set(1);
