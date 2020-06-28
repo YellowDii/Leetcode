@@ -61,4 +61,18 @@ public class Test006 {
 
         return construct(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
     }
+    //重写一遍
+    public static TreeNode construct2(int[] preorder,int ps,int pe,int[] inorder,int is,int ie){
+        if (ps>pe){
+            return null;
+        }
+        TreeNode root=new TreeNode(preorder[ps]);
+        int index=is;
+        while (index<=ie&&inorder[index]!=root.value){
+            index++;
+        }
+        root.left=construct2(preorder,ps+1,ps+index-is,inorder,is,index-1);
+        root.right=construct2(preorder,ps+index-is+1,pe,inorder,index+1,ie);
+        return root;
+    }
 }

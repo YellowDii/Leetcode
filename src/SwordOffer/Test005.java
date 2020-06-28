@@ -17,8 +17,9 @@ public class Test005 {
         }
     }
 
+    //单向栈
     public static ArrayList<ListNode> printListInverselyUsingIteration(ListNode root){
-        ArrayList<ListNode> res=new ArrayList<ListNode>();
+        ArrayList<ListNode> res=new ArrayList<>();
         if (root==null) {
             return res;
         }
