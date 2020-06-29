@@ -10,9 +10,14 @@ public class Test007 {
      */
     public static class MyQueue<T>{
         //插入栈 负责插入
-        private Stack<T> stack1=new Stack<>();
+        private Stack<T> stack1;
         //弹出栈 负责弹出数据
-        private Stack<T> stack2=new Stack<>();
+        private Stack<T> stack2;
+
+        MyQueue(){
+            stack1=new Stack<>();
+            stack2=new Stack<>();
+        }
         public void appendTail(T t){
             stack1.add(t);
         }

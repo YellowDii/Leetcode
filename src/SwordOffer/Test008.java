@@ -59,7 +59,7 @@ public class Test008 {
                 tmp=a;
             }
         }
-        return tmp;
+        return tmp==array[len-1]?array[0]:tmp;
     }
     public static void main(String[] args) {
         int[] array={1,0,1,1,1};
