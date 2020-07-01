@@ -3,7 +3,7 @@ package SwordOffer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Number_60 {
+public class Leet060 {
     /**
      * 060.60. n个骰子的点数
      * 把n个骰子扔在地上，所有骰子朝上一面的点数之和为s。就是和为s
