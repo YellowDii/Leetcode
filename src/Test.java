@@ -1,7 +1,7 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -21,7 +21,7 @@ public class Test {
         }
     };
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 //        atomicInteger.set(1);
 //        System.out.println(atomicInteger.incrementAndGet());
 //        AtomicStampedReference<Integer> money=new AtomicStampedReference<Integer>(19,0);
@@ -33,7 +33,9 @@ public class Test {
         System.out.println(my.getItems());
         my.getItems().addAll(items);
         System.out.println(my.getItems());
-
+        Scanner scanner=new Scanner(System.in);
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        String[] a=br.readLine().split(" ");
         /**
         HashMap<String, List<String>> hashMap=new HashMap<>();
         List<String> a=new ArrayList<>();
