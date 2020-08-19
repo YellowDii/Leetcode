@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -168,5 +169,81 @@ public class Number_146 {
         }
     }
 
+    class LRUCache3{
+        private Map<Integer,ListNode> cache;
+        private ListNode head;
+        private ListNode tail;
+        private int capicity;
+        class ListNode{
+            int key;
+            int val;
+            ListNode pre;
+            ListNode next;
+            ListNode(int key,int val){
+                this.key=key;
+                this.val=val;
+                this.pre=null;
+                this.next=null;
+            }
+        }
+
+        public LRUCache3(int capacity) {
+            this.capicity=capacity;
+            this.cache=new HashMap<>();
+            head=new ListNode(-1,-1);
+            tail=new ListNode(-1,-1);
+            head.next=tail;
+            tail.pre=head;
+        }
+
+        public int get(int key) {
+            if (!cache.containsKey(key)){
+                return -1;
+            }
+            ListNode tmp=cache.get(key);
+            moveToHead(tmp);
+            return tmp.val;
+        }
+
+        private void removeNode(ListNode node){
+            ListNode pre=node.pre;
+            ListNode next=node.next;
+
+            pre.next=next;
+            next.pre=pre;
+        }
+        private void moveToHead(ListNode node){
+            removeNode(node);
+            addNode(node);
+        }
+
+        private void addNode(ListNode node) {
+            node.pre=head;
+            node.next=head.next;
+
+            head.next.pre=node;
+            head.next=node;
+        }
+
+        public void put(int key, int value) {
+            ListNode tmp=cache.get(key);
+            if (tmp==null){
+                tmp=new ListNode(key,value);
+                addNode(tmp);
+                cache.put(key,tmp);
+
+                if (capicity<cache.size()){
+                    //删除最尾部节点
+                    cache.remove(tail.pre.key);
+                    removeNode(tail.pre);
+
+                }
+            }else {
+                //直接更新
+                tmp.val=value;
+                moveToHead(tmp);
+            }
+        }
+    }
 
 }

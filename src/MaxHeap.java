@@ -17,7 +17,7 @@ public class MaxHeap<E> {
     }
 
     /**
-     * 根据数组构造一个堆
+     * 根据数组构造一个堆 从最后一个非叶子节点向下调整
      * @param array 传入数组
      */
     @SuppressWarnings("unchecked")

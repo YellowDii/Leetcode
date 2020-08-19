@@ -19,9 +19,11 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:bson:3.11.2" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:mongo-java-driver:3.11.2" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.48" level="project" />
-    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.2.0.RELEASE" level="project" />
   </component>
 </module>

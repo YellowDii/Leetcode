@@ -97,8 +97,13 @@ public class Main {
 //        Number_392 a=new Number_392();
 //        a.isSubsequence("abc","ahbfcagaa");
 //        System.out.println(Math.PI);
-        Number_688 n=new Number_688();
+//        Number_688 n=new Number_688();
 //        System.out.println(n.knightProbability(3,2,0,0));
+        Integer a=100,b=100;
+        int c=100;
+        System.out.println(a==c);
+        System.out.println(b==c);
+
     }
     //1220题用到的快速计算
     public static int countmi(int a,int b, int n){
@@ -119,4 +124,5 @@ public class Main {
         String str = new String(data);
         a = str;
     }
+
 }

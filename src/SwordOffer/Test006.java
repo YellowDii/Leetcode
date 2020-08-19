@@ -1,5 +1,7 @@
 package SwordOffer;
 
+import java.util.Map;
+
 public class Test006 {
     /**
      * 题目：

@@ -62,6 +62,8 @@ public class NIOTest {
                 keyIterator.remove();
             }
         }
+
+
     }
 
     public static void main(String[] args) throws IOException {
@@ -100,7 +102,7 @@ public class NIOTest {
                 } else if (key.isReadable()) {
 
                     SocketChannel sChannel = (SocketChannel) key.channel();
-                    System.out.println(readDataFromSocketChannel(sChannel));
+                    System.out.println(key.toString()+": "+readDataFromSocketChannel(sChannel));
                     sChannel.close();
                 }
 

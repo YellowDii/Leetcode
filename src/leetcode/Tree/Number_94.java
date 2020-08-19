@@ -22,6 +22,7 @@ public class Number_94 {
      * 来源：力扣（LeetCode）
      * 链接：https://leetcode-cn.com/problems/binary-tree-inorder-traversal
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     *
      */
     public class TreeNode {
         int val;
@@ -92,7 +93,7 @@ public class Number_94 {
                 TreeNode tmp=cur.left;
                 pre=cur;
                 cur=cur.left;
-                pre.left=null;
+                pre.left=null;//防止形成环路 
                 while (tmp.right!=null){
                     tmp=tmp.right;
                 }

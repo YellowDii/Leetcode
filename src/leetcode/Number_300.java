@@ -172,4 +172,35 @@ public class Number_300 {
         }
         return end;
     }
+    //在写一遍
+    public int lengthOfLIS6(int[] nums){
+        if (nums==null||nums.length<1){
+            return 0;
+        }
+        int len=nums.length;
+        if (len==0||len==1){
+            return len;
+        }
+        int end=0;
+        int[] d=new int[len];
+        int left=0,right=end,mid=0,cur=nums[0];
+        for (int i=0;i<len;i++){
+            cur=nums[i];
+            left=0;
+            right=end;
+            while (left<right){
+                mid=(left+right)>>1;
+                if (d[mid]>=cur){
+                    right=mid;
+                }else {
+                    left=mid+1;
+                }
+            }
+            if (left==end){
+                end++;
+            }
+            d[left]=cur;
+        }
+        return end;
+    }
 }
